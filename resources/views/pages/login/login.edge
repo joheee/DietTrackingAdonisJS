@@ -10,16 +10,22 @@
   <main class="content-container">
     <div class="login-container">
       <h2>Login</h2>
-      <form action="/login" method="POST">
+      <form action="{{route('page.handleLogin')}}" method="POST">
+        
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
+          <input type="email" id="email" name="email" >
+          </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" required>
+          <input type="password" id="password" name="password" >
         </div>
         <button type="submit" class="default-button">Login</button>
+        @if (flashMessages.has('errors'))
+          <small style="color: red;">
+            {{ flashMessages.get('errors') }}
+          </small>
+        @endif
       </form>
     </div>
   </main>

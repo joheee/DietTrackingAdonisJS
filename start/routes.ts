@@ -7,11 +7,15 @@
 |
 */
 
+import AuthController from '#controllers/auth_controller'
+import FoodsController from '#controllers/foods_controller'
+import ProfilesController from '#controllers/profiles_controller'
 import router from '@adonisjs/core/services/router'
 
-router.on("/bmi").render("pages/bmi/bmi");
-router.on("/foods").render("pages/foods/foods");
-router.on('/').render('pages/landing/landing')
-router.on("/login").render("pages/login/login");
-router.on("/profile").render("pages/profile/profile");
-router.on("/register").render("pages/register/register");
+router.on('/bmi').render('pages/bmi/bmi')
+router.get('/foods', [FoodsController, 'food']).as('page.food')
+router.get('/', [FoodsController, 'landing']).as('page.landing')
+router.get('/login', [AuthController, 'login']).as('page.login')
+router.post('/login', [AuthController, 'handleLogin']).as('page.handleLogin')
+router.get('/register', [AuthController, 'register']).as('page.register')
+router.get('/profile', [ProfilesController, 'profile']).as('page.profile')
