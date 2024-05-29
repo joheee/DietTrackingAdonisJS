@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register | Diet Tracking</title>
+  @vite(['resources/css/login.css', 'resources/js/app.js'])
+</head>
+<body>
+  @include('component/navigation')
+  <main class="content-container">
+    <div class="login-container">
+      <h2>Register</h2>
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit" class="default-button">Register</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

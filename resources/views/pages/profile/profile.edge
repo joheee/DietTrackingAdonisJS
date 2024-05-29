@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile | Diet Tracking</title>
+  @vite(['resources/css/profile.css', 'resources/js/app.js'])
+</head>
+<body>
+  @include('component/navigation')
+  <main class="content-container">
+    <div class="profile-header">
+      <img class="profile-image" src="/assets/home/home-food.png" alt="Profile Image">
+      <div class="profile-info">
+        <h2 class="profile-name">John Doe</h2>
+        <p class="profile-email">johndoe@example.com</p>
+        <button class="default-button">Edit Profile</button>
+      </div>
+    </div>
+    <div class="profile-favorites">
+      <h2 class="favorites-title">Favorite Foods</h2>
+      <div class="foods-list">
+        <div class="food-card">
+          <img class="food-image" src="/assets/home/home-food.png" alt="Food 1">
+          <div class="food-info">
+            <h3 class="food-title">Food Title 1</h3>
+            <p class="food-description">This is a short description of food 1.</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <img class="food-image" src="/assets/home/home-food.png" alt="Food 2">
+          <div class="food-info">
+            <h3 class="food-title">Food Title 2</h3>
+            <p class="food-description">This is a short description of food 2.</p>
+          </div>
+        </div>
+        <!-- Add more food cards as needed -->
+      </div>
+    </div>
+  </main>
+</body>
+</html>

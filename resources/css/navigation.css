@@ -1,0 +1,42 @@
+@import url('style.css');
+
+.navbar {
+  width: 100%;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  position: fixed;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.nav-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links ul li {
+  display: inline;
+  padding: 0 10px;
+}
+
+.nav-links ul li a,
+.logo h1 a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover,
+.logo h1 a:hover {
+  color: #ccc;
+}

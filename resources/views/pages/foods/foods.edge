@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Foods | Diet Tracking</title>
+  @vite(['resources/css/food.css', 'resources/js/app.js'])
+</head>
+<body>
+  @include('component/navigation')
+  <main class="content-container">
+    <div class="foods-title-container">
+      <div class="foods-title">Healthy Foods for Your Diet</div>
+      <div class="foods-sub-title">Explore our collection of diet-friendly foods</div>
+    </div>
+    <div class="foods-list">
+      <div class="food-card">
+        <img class="food-image" src="/asset/home/home-food.png" alt="Food 1">
+        <div class="food-info">
+          <h3 class="food-title">Food Title 1</h3>
+          <p class="food-description">This is a short description of food 1.</p>
+        </div>
+      </div>
+      <div class="food-card">
+        <img class="food-image" src="/asset/home/home-food.png" alt="Food 2">
+        <div class="food-info">
+          <h3 class="food-title">Food Title 2</h3>
+          <p class="food-description">This is a short description of food 2.</p>
+        </div>
+      </div>
+      <!-- Add more food cards as needed -->
+    </div>
+  </main>
+</body>
+</html>

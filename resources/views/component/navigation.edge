@@ -1,0 +1,30 @@
+<!-- resources/views/navigation.edge -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  @vite(['resources/css/navigation.css', 'resources/js/app.js'])
+</head>
+  <nav class="navbar">
+    <div class="app">
+      <header>
+        <nav class="navbar-container">
+          <div class="logo">
+            <h1>
+              <a href="/">Diet Tracking</a>
+            </h1>
+          </div>
+          <div class="nav-links">
+            <ul>
+              <li><a href="/login">login</a></li>
+              <li><a href="/register">register</a></li>
+              <li><a href="/foods">foods</a></li>
+              <li><a href="/profile">profile</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    </div>
+  </nav>
+</html>

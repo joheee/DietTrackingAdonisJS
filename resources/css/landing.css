@@ -1,0 +1,17 @@
+@import url('style.css');
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.home-title-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.landing-title {
+  font-size: 36px;
+  font-weight: bold;
+}
