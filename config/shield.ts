@@ -6,7 +6,7 @@ const shieldConfig = defineConfig({
    * to learn more
    */
   csp: {
-    enabled: true,
+    enabled: false,
     directives: {},
     reportOnly: false,
   },

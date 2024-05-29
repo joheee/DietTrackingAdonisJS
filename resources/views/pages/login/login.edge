@@ -11,21 +11,26 @@
     <div class="login-container">
       <h2>Login</h2>
       <form action="{{route('page.handleLogin')}}" method="POST">
-        
+        {{ csrfField() }}
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" >
-          </div>
+          <input type="text" id="email" name="email" >
+          @if (flashMessages.has('errors.email'))
+          <small style="color: red;">
+            {{ flashMessages.get('errors.email') }}
+          </small>
+          @endif
+        </div>
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" id="password" name="password" >
+          @if (flashMessages.has('errors.password'))
+          <small style="color: red;">
+            {{ flashMessages.get('errors.password') }}
+          </small>
+          @endif
         </div>
         <button type="submit" class="default-button">Login</button>
-        @if (flashMessages.has('errors'))
-          <small style="color: red;">
-            {{ flashMessages.get('errors') }}
-          </small>
-        @endif
       </form>
     </div>
   </main>
