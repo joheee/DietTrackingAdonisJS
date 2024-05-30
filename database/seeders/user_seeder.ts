@@ -8,14 +8,14 @@ export default class extends BaseSeeder {
         email: 'aaaa@gmail.com',
         password: 'aaaa',
         name: 'aaaa',
-        picture: 'home-tool.png',
+        picture: 'ywiia3ji9xjdbtx6nyz5939w.jpg',
       },
       {
-        email:'bbbb@gmail.com',
-        password:'bbbb',
+        email: 'bbbb@gmail.com',
+        password: 'bbbb',
         name: 'bbbb',
-        picture: 'home-tool.png',
-      }
+        picture: 'ywiia3ji9xjdbtx6nyz5939w.jpg',
+      },
     ])
   }
 }

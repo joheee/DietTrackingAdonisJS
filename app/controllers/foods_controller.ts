@@ -1,31 +1,54 @@
+import Food from '#models/food'
+import { addFoodValidator } from '#validators/food'
+import { cuid } from '@adonisjs/core/helpers'
 import type { HttpContext } from '@adonisjs/core/http'
+import app from '@adonisjs/core/services/app'
 
 export default class FoodsController {
-  /**
-   * view to food page
-   */
-  async landing({ view, session }: HttpContext) {
+  async landing({ view, session, response }: HttpContext) {
     const user = session.get('user')
-    return view.render('pages/landing/landing', {user})
+    if (!user) {
+      return response.redirect().toRoute('page.login')
+    }
+    return view.render('pages/landing/landing', { user })
   }
 
-  /**
-   * view to food page
-   */
-  async food({ view, session }: HttpContext) {
+  async food({ view, session, response }: HttpContext) {
     const user = session.get('user')
-    return view.render('pages/foods/foods', {user})
+    if (!user) {
+      return response.redirect().toRoute('page.login')
+    }
+    const foods = await Food.all()
+    return view.render('pages/foods/foods', { user, foods })
   }
 
-  /**
-   * Display form to create a new record
-   */
-  async create({}: HttpContext) {}
+  async addFood({ session, view, response }: HttpContext) {
+    const user = session.get('user')
+    if (!user) {
+      return response.redirect().toRoute('page.login')
+    }
+    return view.render('pages/addfood/addfood', { user })
+  }
 
-  /**
-   * Handle form submission for the create action
-   */
-  async store({ request }: HttpContext) {}
+  async handleAddFood({ request, response, session, view }: HttpContext) {
+    const data = await request.validateUsing(addFoodValidator)
+    try {
+      let pic = data.picture
+      await pic.move(app.makePath('public/assets/foods'), {
+        name: `${cuid()}.${pic.extname}`,
+      })
+
+      await Food.create({
+        name: data.name,
+        description: data.description,
+        picture: pic.fileName!,
+      })
+      return response.redirect().toRoute('page.food')
+    } catch (error) {
+      session.flash('errors.picture', 'Invalid add food')
+      return response.redirect('back')
+    }
+  }
 
   /**
    * Show individual record

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foods | Diet Tracking</title>
   @vite(['resources/css/food.css', 'resources/js/app.js'])
 </head>
@@ -11,23 +12,20 @@
     <div class="foods-title-container">
       <div class="foods-title">Healthy Foods for Your Diet</div>
       <div class="foods-sub-title">Explore our collection of diet-friendly foods</div>
+      <a href="{{route('page.addFood')}}" class="default-button">Add New Food</a>
     </div>
+    
+    @each(f in foods)
     <div class="foods-list">
       <div class="food-card">
-        <img class="food-image" src="/asset/home/home-food.png" alt="Food 1">
+        <img class="food-image" src="/assets/foods/{{f.picture}}" alt="Food 1">
         <div class="food-info">
-          <h3 class="food-title">Food Title 1</h3>
-          <p class="food-description">This is a short description of food 1.</p>
+          <h3 class="food-title">{{f.name}}</h3>
+          <p class="food-description">{{f.description}}</p>
         </div>
       </div>
-      <div class="food-card">
-        <img class="food-image" src="/asset/home/home-food.png" alt="Food 2">
-        <div class="food-info">
-          <h3 class="food-title">Food Title 2</h3>
-          <p class="food-description">This is a short description of food 2.</p>
-        </div>
-      </div>
-      <!-- Add more food cards as needed -->
+    @end
+
     </div>
   </main>
 </body>

@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Edit Profile | Diet Tracking</title>
+  <title>Add Food | Diet Tracking</title>
   @vite(['resources/css/login.css', 'resources/js/app.js'])
 </head>
 <body>
   @include('component/navigation')
   <main class="content-container">
     <div class="login-container">
-      <h2>Edit Profile</h2>
-      <form enctype="multipart/form-data" action="{{route("page.handleEdit")}}" method="POST">
+      <h2>New Food</h2>
+      <form enctype="multipart/form-data" action="{{route("page.handleAddFood")}}" method="POST">
         {{csrfField()}}
-
         <div class="form-group">
-          <label for="email">Name</label>
-          <input type="text" id="name" name="name" value="{{user.name}}">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name">
           @if (flashMessages.has('errors.name'))
           <small style="color: red;">
             {{ flashMessages.get('errors.name') }}
+          </small>
+          @endif
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description">
+          @if (flashMessages.has('errors.description'))
+          <small style="color: red;">
+            {{ flashMessages.get('errors.description') }}
           </small>
           @endif
         </div>
@@ -31,8 +39,7 @@
           </small>
           @endif
         </div>
-
-        <button type="submit" class="default-button">Edit Profile</button>
+        <button type="submit" class="default-button">Add</button>
       </form>
     </div>
   </main>

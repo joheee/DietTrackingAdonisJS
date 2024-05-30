@@ -5,12 +5,18 @@ import { HttpContext } from '@adonisjs/core/http'
 import app from '@adonisjs/core/services/app'
 
 export default class AuthController {
-  async login({ view, session }: HttpContext) {
+  async login({ view, session, response }: HttpContext) {
     const user = session.get('user')
+    if (user) {
+      return response.redirect().toRoute('page.landing')
+    }
     return view.render('pages/login/login', { user })
   }
-  async register({ view, session }: HttpContext) {
+  async register({ view, session, response }: HttpContext) {
     const user = session.get('user')
+    if (user) {
+      return response.redirect().toRoute('page.landing')
+    }
     return view.render('pages/register/register', { user })
   }
 
