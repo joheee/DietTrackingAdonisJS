@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Profile | Diet Tracking</title>
+  @vite(['resources/css/login.css', 'resources/js/app.js'])
+</head>
+<body>
+  @include('component/navigation')
+  <main class="content-container">
+    <div class="login-container">
+      <h2>Edit Profile</h2>
+      <form enctype="multipart/form-data" action="{{route("page.handleRegister")}}" method="POST">
+        {{csrfField()}}
+
+        <div class="form-group">
+          <label for="email">Name</label>
+          <input type="text" id="name" name="name" value="{{user.name}}">
+          @if (flashMessages.has('errors.name'))
+          <small style="color: red;">
+            {{ flashMessages.get('errors.name') }}
+          </small>
+          @endif
+        </div>
+        <div class="form-group">
+          <label for="email">Picture</label>
+          <input type="file" id="picture" name="picture">
+          @if (flashMessages.has('errors.picture'))
+          <small style="color: red;">
+            {{ flashMessages.get('errors.picture') }}
+          </small>
+          @endif
+        </div>
+
+        <button type="submit" class="default-button">Edit Profile</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

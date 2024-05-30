@@ -6,7 +6,10 @@ export default class ProfilesController {
     return view.render('pages/profile/profile', { user })
   }
 
-  async edit({ params }: HttpContext) {}
+  async edit({ view, session, params }: HttpContext) {
+    const user = session.get('user')
+    return view.render('pages/editprofile/editprofile', { user })
+  }
 
   async update({ params, request }: HttpContext) {}
 }
