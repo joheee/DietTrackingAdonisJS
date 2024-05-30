@@ -1,41 +1,12 @@
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class ProfilesController {
-  /**
-   * view to profile
-   */
   async profile({ view, session }: HttpContext) {
     const user = session.get('user')
     return view.render('pages/profile/profile', { user })
   }
 
-  /**
-   * Display form to create a new record
-   */
-  async create({}: HttpContext) {}
-
-  /**
-   * Handle form submission for the create action
-   */
-  async store({ request }: HttpContext) {}
-
-  /**
-   * Show individual record
-   */
-  async show({ params }: HttpContext) {}
-
-  /**
-   * Edit individual record
-   */
   async edit({ params }: HttpContext) {}
 
-  /**
-   * Handle form submission for the edit action
-   */
   async update({ params, request }: HttpContext) {}
-
-  /**
-   * Delete record
-   */
-  async destroy({ params }: HttpContext) {}
 }
