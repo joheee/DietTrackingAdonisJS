@@ -4,8 +4,9 @@ export default class ProfilesController {
   /**
    * view to profile
    */
-  async profile({view}: HttpContext) {
-    return view.render('pages/profile/profile')
+  async profile({ view, session }: HttpContext) {
+    const user = session.get('user')
+    return view.render('pages/profile/profile', { user })
   }
 
   /**

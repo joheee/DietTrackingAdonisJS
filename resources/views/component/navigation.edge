@@ -1,4 +1,3 @@
-<!-- resources/views/navigation.edge -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,25 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite(['resources/css/navigation.css', 'resources/js/app.js'])
 </head>
+<body>
   <nav class="navbar">
     <div class="app">
       <header>
         <nav class="navbar-container">
           <div class="logo">
             <h1>
-              <a href="{{route('page.landing')}}">Diet Tracking</a>
+              <a href="{{ route('page.landing') }}">Diet Tracking</a>
             </h1>
           </div>
           <div class="nav-links">
             <ul>
-              <li><a href="{{route('page.login')}}">login</a></li>
-              <li><a href="{{route('page.register')}}">register</a></li>
-              <li><a href="{{route('page.food')}}">foods</a></li>
-              <li><a href="{{route('page.profile')}}">profile</a></li>
+              @if (user)
+                <li><a href="{{ route('page.food') }}">Foods</a></li>
+                <li><a href="{{ route('page.profile') }}">{{user.name}}</a></li>
+                <li><a href="{{ route('page.logout') }}">Logout</a></li>
+              @else
+                <li><a href="{{ route('page.login') }}">Login</a></li>
+                <li><a href="{{ route('page.register') }}">Register</a></li>
+              @endif
             </ul>
           </div>
         </nav>
       </header>
     </div>
   </nav>
+</body>
 </html>

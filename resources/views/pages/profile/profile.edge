@@ -9,10 +9,10 @@
   @include('component/navigation')
   <main class="content-container">
     <div class="profile-header">
-      <img class="profile-image" src="/assets/home/home-food.png" alt="Profile Image">
+      <img class="profile-image" src="/assets/picture/{{user.picture}}" alt="Profile Image">
       <div class="profile-info">
-        <h2 class="profile-name">John Doe</h2>
-        <p class="profile-email">johndoe@example.com</p>
+        <h2 class="profile-name">{{user.name}}</h2>
+        <p class="profile-email">{{user.email}}</p>
         <button class="default-button">Edit Profile</button>
       </div>
     </div>

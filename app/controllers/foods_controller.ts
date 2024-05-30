@@ -4,15 +4,17 @@ export default class FoodsController {
   /**
    * view to food page
    */
-  async landing({ view }: HttpContext) {
-    return view.render('pages/landing/landing')
+  async landing({ view, session }: HttpContext) {
+    const user = session.get('user')
+    return view.render('pages/landing/landing', {user})
   }
 
   /**
    * view to food page
    */
-  async food({ view }: HttpContext) {
-    return view.render('pages/foods/foods')
+  async food({ view, session }: HttpContext) {
+    const user = session.get('user')
+    return view.render('pages/foods/foods', {user})
   }
 
   /**

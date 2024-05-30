@@ -10,7 +10,7 @@
   <main class="content-container">
     <div class="login-container">
       <h2>Register</h2>
-      <form action="{{route("page.handleRegister")}}" method="POST">
+      <form enctype="multipart/form-data" action="{{route("page.handleRegister")}}" method="POST">
         {{csrfField()}}
         <div class="form-group">
           <label for="email">Email</label>
@@ -32,8 +32,8 @@
         </div>
         <div class="form-group">
           <label for="email">Picture</label>
-          <input type="text" id="picture" name="picture">
-                    @if (flashMessages.has('errors.picture'))
+          <input type="file" id="picture" name="picture">
+          @if (flashMessages.has('errors.picture'))
           <small style="color: red;">
             {{ flashMessages.get('errors.picture') }}
           </small>
@@ -51,7 +51,7 @@
         <div class="form-group">
           <label for="confirm_password">Confirm Password</label>
           <input type="password" id="confirm_password" name="confirm_password">
-                    @if (flashMessages.has('errors.confirm_password'))
+          @if (flashMessages.has('errors.confirm_password'))
           <small style="color: red;">
             {{ flashMessages.get('errors.confirm_password') }}
           </small>

@@ -15,6 +15,7 @@ import router from '@adonisjs/core/services/router'
 router.on('/bmi').render('pages/bmi/bmi')
 router.get('/foods', [FoodsController, 'food']).as('page.food')
 router.get('/', [FoodsController, 'landing']).as('page.landing')
+router.get('/logout', [AuthController, 'logout']).as('page.logout')
 router.get('/login', [AuthController, 'login']).as('page.login')
 router.post('/login', [AuthController, 'handleLogin']).as('page.handleLogin')
 router.get('/register', [AuthController, 'register']).as('page.register')
